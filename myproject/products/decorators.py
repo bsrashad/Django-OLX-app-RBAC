@@ -9,7 +9,7 @@ def role_required(allowed_roles):
             if not user.is_authenticated:
                 return HttpResponseForbidden("You must be logged in to access this page.")
             
-            # Check if the user has a valid role
+            # Checking  if the user has a valid role or not
             if not hasattr(user, 'role') or user.role not in allowed_roles:
                 return HttpResponseForbidden("You do not have permission to access this page.")
 

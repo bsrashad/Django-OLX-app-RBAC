@@ -1,4 +1,4 @@
-# # core/throttling/custom_throttle.py
+
 from rest_framework.throttling import BaseThrottle,SimpleRateThrottle
 from django.core.cache import cache
 

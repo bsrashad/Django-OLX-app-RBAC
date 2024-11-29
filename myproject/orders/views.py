@@ -10,7 +10,7 @@ from .models import Order
 from rest_framework.permissions import AllowAny
 from .pagination import MyPageNumberPagination 
 import asyncio
-# Create your views here.
+
 from throttling.custom_throttle import ScopedRateThrottle
 class OrderCreateView(APIView):
 

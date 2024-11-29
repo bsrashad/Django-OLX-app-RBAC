@@ -11,24 +11,23 @@ class ScopedRateThrottle(SimpleRateThrottle):
     scope_attr = 'throttle_scope'
 
     def __init__(self):
-        # Override the usual SimpleRateThrottle, because we can't determine
-        # the rate until called by the view.
+        
         pass
 
     def allow_request(self, request, view):
-        # We can only determine the scope once we're called by the view.
+        
         self.scope = getattr(view, self.scope_attr, None)
 
         # If a view does not have a `throttle_scope` always allow the request
         if not self.scope:
             return True
 
-        # Determine the allowed request rate as we normally would during
-        # the `__init__` call.
+      
+      
         self.rate = self.get_rate()
         self.num_requests, self.duration = self.parse_rate(self.rate)
 
-        # We can now proceed as normal.
+
         return super().allow_request(request, view)
 
     def get_cache_key(self, request, view):
